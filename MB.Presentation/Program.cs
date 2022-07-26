@@ -1,7 +1,12 @@
+using MB.Infrastructure.Config;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+//!Wire Upping Dependencies 
+Bootstrapper.Config(builder.Services , builder.Configuration.GetConnectionString("MasterBlogDB"));
 
 var app = builder.Build();
 
