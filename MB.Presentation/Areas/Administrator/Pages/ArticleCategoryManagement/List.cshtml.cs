@@ -13,8 +13,9 @@ namespace MB.Presentation.Areas.Administrator.Pages.ArticleCategoryManagement
             _articleCategoryApplication = articleCategoryApplication;
         }
 
-        public void OnGet()
+        public void OnGet(bool created = false)
         {
+            ViewData["Created"] = created;
             ArticleCategories = _articleCategoryApplication.List();
         }
     }

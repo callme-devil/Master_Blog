@@ -4,12 +4,23 @@
 }
 
 
+<div class="col-12 mb-3">
+    <div class="row">
+        @if (ViewBag.Created==true)
+        {
+            <div class="alert alert-success">
+               Article Category Successfully Created
+            </div>
+        }
+    </div>
+</div>
+
 
 <div class="card">
     <div class="card-header">
         <h3 class="float-start">Article Category List</h3>
         <div class="float-end">
-            <a class="btn btn-success" asp-page="./Create" asp-area="Administrator">Add New</a>
+            <a class="btn btn-success" asp-page="./Create" asp-area="Administrator">Create New</a>
         </div>
     </div>
     <div class="card-body">
@@ -32,11 +43,11 @@
                        <td>
                            @if (articleCategory.IsDeleted)
                            {
-                               <i>❌</i>
+                               <span>❌</span>
                            }
                            else
                            {
-                               <i>✔️</i>
+                               <span>✅</span>
                            }
                        </td>
                    </tr>
