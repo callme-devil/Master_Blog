@@ -1,7 +1,7 @@
 using MB.Application.Contracts.ArticleCategory;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace MB.Presentation.Areas.Administrator.Pages.ArticleCategoryManagment
+namespace MB.Presentation.Areas.Administrator.Pages.ArticleCategoryManagement
 {
     public class ListModel : PageModel
     {
