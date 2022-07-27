@@ -1,4 +1,6 @@
-﻿namespace MB.Domain.ArticleCategoryAgg
+﻿using MB.Domain.ArticleCategoryAgg.Services;
+
+namespace MB.Domain.ArticleCategoryAgg
 {
     public class ArticleCategory
     {
@@ -10,15 +12,27 @@
 
         public DateTime CreationDate { get; private set; }
 
-        public ArticleCategory(string title)
+        public ArticleCategory(string title , IArticleCategoryValidatorService validatorService)
         {
+            CheckNullableTitle(title);
+            validatorService.Validate(title);
+
             Title = title;
             IsDeleted = false;
             CreationDate = DateTime.Now;
         }
 
+        public void CheckNullableTitle(string title)
+        {
+            if (string.IsNullOrWhiteSpace(title))
+            {
+                throw new ArgumentNullException();
+            }
+        }
+
         public void Rename(string title)
         {
+            CheckNullableTitle(title);
             Title = title;
         }
 

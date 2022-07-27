@@ -9,5 +9,7 @@
         ArticleCategory Get(long id);
 
         void Save();
+
+        bool CheckExist(string title);
     }
 }
