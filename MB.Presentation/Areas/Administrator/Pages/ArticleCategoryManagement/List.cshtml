@@ -12,6 +12,13 @@
                Article Category Successfully Created
             </div>
         }
+        
+        @if (ViewBag.Edited==true)
+        {
+            <div class="alert alert-success">
+                Article Category Successfully Edited
+            </div>
+        }
     </div>
 </div>
 
@@ -31,6 +38,7 @@
                 <th>Title</th>
                 <th>CreationDate</th>
                 <th>Status</th>
+                <th>Operations</th>
             </tr>
             </thead>
             <tbody>
@@ -49,6 +57,9 @@
                            {
                                <span>✅</span>
                            }
+                       </td>
+                       <td>
+                           <a class="btn btn-info" asp-page="./Edit" asp-route-id="@articleCategory.Id">Edit</a>
                        </td>
                    </tr>
                }

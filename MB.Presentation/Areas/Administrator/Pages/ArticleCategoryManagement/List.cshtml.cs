@@ -13,9 +13,10 @@ namespace MB.Presentation.Areas.Administrator.Pages.ArticleCategoryManagement
             _articleCategoryApplication = articleCategoryApplication;
         }
 
-        public void OnGet(bool created = false)
+        public void OnGet(bool created = false , bool edited =false)
         {
             ViewData["Created"] = created;
+            ViewData["Edited"] = edited;
             ArticleCategories = _articleCategoryApplication.List();
         }
     }

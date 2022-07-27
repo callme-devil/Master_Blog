@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MB.Infrastructure.EFCore", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MB.Presentation", "MB.Presentation\MB.Presentation.csproj", "{88254B40-3FD6-4A9C-B227-68609E51BF36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MB.Infrastructure.Config", "MB.Infrastructure.Config\MB.Infrastructure.Config.csproj", "{8EBB1AFD-D589-46FC-9158-3D2BE58F049A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MB.Infrastructure.Config", "MB.Infrastructure.Config\MB.Infrastructure.Config.csproj", "{8EBB1AFD-D589-46FC-9158-3D2BE58F049A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

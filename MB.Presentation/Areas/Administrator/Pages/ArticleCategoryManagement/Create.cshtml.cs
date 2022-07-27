@@ -17,10 +17,11 @@ namespace MB.Presentation.Areas.Administrator.Pages.ArticleCategoryManagement
         {
         }
 
-        public IActionResult OnPost(CreateArticleCategory command)
+        public RedirectToPageResult OnPost(CreateArticleCategory command)
         {
             _articleCategoryApplication.Create(command);
-            return Redirect("./List?Created=true");
+            //!New way to send query in RedirectToPage
+            return RedirectToPage("./List" , new {Created="True"});
         }
     }
 }

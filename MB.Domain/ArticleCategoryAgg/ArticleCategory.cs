@@ -16,5 +16,10 @@
             IsDeleted = false;
             CreationDate = DateTime.Now;
         }
+
+        public void Rename(string title)
+        {
+            Title = title;
+        }
     }
 }

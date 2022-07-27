@@ -5,5 +5,9 @@
         List<ArticleCategory> GetAll();
 
         void Add(ArticleCategory entity);
+        
+        ArticleCategory Get(long id);
+
+        void Save();
     }
 }

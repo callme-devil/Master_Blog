@@ -21,7 +21,17 @@ namespace MB.Infrastructure.EFCore.Repositories
         public void Add(ArticleCategory entity)
         {
             _context.ArticleCategories.Add(entity);
-            _context.SaveChanges(); 
+            Save();
+        }
+
+        public ArticleCategory Get(long id)
+        {
+            return _context.ArticleCategories.First(x => x.Id == id);
+        }
+
+        public void Save()
+        {
+            _context.SaveChanges();
         }
     }
 }
