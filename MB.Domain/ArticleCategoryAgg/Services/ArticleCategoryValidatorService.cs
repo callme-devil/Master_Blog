@@ -1,4 +1,6 @@
-﻿namespace MB.Domain.ArticleCategoryAgg.Services;
+﻿using MB.Domain.ArticleCategoryAgg.Exceptions;
+
+namespace MB.Domain.ArticleCategoryAgg.Services;
 
 public class ArticleCategoryValidatorService:IArticleCategoryValidatorService
 {
@@ -8,7 +10,7 @@ public class ArticleCategoryValidatorService:IArticleCategoryValidatorService
     {
         if (_articleCategoryRepository.CheckExist(title))
         {
-            throw new Exception();
+            throw new DuplicatedRecordException("This Record Already Exists In DataBase");
         }
     }
 }
