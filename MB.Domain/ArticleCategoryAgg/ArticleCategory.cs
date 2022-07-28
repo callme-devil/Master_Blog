@@ -15,6 +15,11 @@ namespace MB.Domain.ArticleCategoryAgg
 
         public ICollection<Article> Articles { get; set; }
 
+        protected ArticleCategory()
+        {
+
+        }
+
         public ArticleCategory(string title , IArticleCategoryValidatorService validatorService)
         {
             CheckNullableTitle(title);

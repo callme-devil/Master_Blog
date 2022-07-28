@@ -19,7 +19,7 @@ namespace MB.Infrastructure.EFCore.Mappings
 
             builder.HasOne(x=>x.ArticleCategory)
                 .WithMany(x=>x.Articles)
-                .HasForeignKey(x=>x.ArticleCategory.Id);
+                .HasForeignKey(x=>x.ArticleCategoryId);
         }
     }
 }

@@ -2,6 +2,6 @@
 {
     public interface IArticleApplication
     {
-
+        List<ArticleViewModel> GetArticles();
     }
 }

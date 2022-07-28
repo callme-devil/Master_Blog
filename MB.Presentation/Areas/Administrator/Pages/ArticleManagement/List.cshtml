@@ -1,0 +1,99 @@
+﻿@page
+@model MB.Presentation.Areas.Administrator.Pages.ArticleManagement.ListModel
+@{
+}
+
+
+<div class="col-12 mb-3">
+    <div class="row">
+        @if (ViewBag.Created==true)
+        {
+            <div class="alert alert-success">
+               Article Successfully Created
+            </div>
+        }
+        
+        @if (ViewBag.Edited==true)
+        {
+            <div class="alert alert-info">
+                Article Successfully Edited
+            </div>
+        }
+        
+        @if (ViewBag.Removed==true)
+        {
+            <div class="alert alert-warning">
+                Article Successfully Removed
+            </div>
+        }
+        
+        @if (ViewBag.Activated==true)
+        {
+            <div class="alert alert-success">
+                Article Successfully Activated
+            </div>
+        }
+    </div>
+</div>
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="float-start">Articles List</h3>
+        <div class="float-end">
+            <a class="btn btn-success" asp-page="./Create" asp-area="Administrator">Create New</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Article Category</th>
+                <th>CreationDate</th>
+                <th>Status</th>
+                <th>Operations</th>
+            </tr>
+            </thead>
+            <tbody>
+               @foreach (var article in Model.Articles)
+               {
+                   <tr>
+                       <td>@article.Id</td>
+                       <td>@article.Title</td>
+                       <td>@article.ArticleCategory</td>
+                       <td>@article.CreationDate</td>
+                       <td>
+                           @if (article.IsDeleted)
+                           {
+                               <span>❌</span>
+                           }
+                           else
+                           {
+                               <span>✅</span>
+                           }
+                       </td>
+                       <td>
+                           <a class="btn btn-info float-start" asp-page="./Edit" asp-route-id="@article.Id" style="margin-right: 20px">Edit</a>
+                           @if (article.IsDeleted)
+                           {
+                               <form method="post" asp-page-handler="Activate" class="float-start">
+                                   <input type="hidden" name="Id" value="@article.Id"/>
+                                   <button class="btn btn-success">Activate</button>
+                               </form>
+                           }
+                           else
+                           {
+                               <form method="post" asp-page-handler="Remove" class="float-start">
+                                   <input type="hidden" name="Id" value="@article.Id"/>
+                                   <button class="btn btn-danger">Remove</button>
+                               </form>
+                           }
+                       </td>
+                   </tr>
+               }
+            </tbody>
+        </table>
+    </div>
+</div>
