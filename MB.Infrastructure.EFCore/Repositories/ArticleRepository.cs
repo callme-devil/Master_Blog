@@ -25,8 +25,21 @@ namespace MB.Infrastructure.EFCore.Repositories
                 Title = x.Title,
                 ArticleCategory = x.ArticleCategory.Title,
                 IsDeleted = x.IsDeleted,
-                CreationDate = x.CreationDate.ToString(CultureInfo.InvariantCulture)
+                CreationDate = x.CreationDate.ToString(CultureInfo.InvariantCulture),
+                Image = x.Image
             }).ToList();
+        }
+
+        public void Create(Article entity)
+        {
+            _context.Articles.Add(entity);
+            Save();
+
+        }
+
+        public void Save()
+        {
+            _context.SaveChanges();
         }
     }
 }

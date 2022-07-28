@@ -11,5 +11,7 @@
         public bool IsDeleted { get; set; }
 
         public string CreationDate { get; set; }
+
+        public string Image { get; set; }
     }
 }

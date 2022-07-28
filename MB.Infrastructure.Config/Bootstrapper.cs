@@ -15,7 +15,7 @@ namespace MB.Infrastructure.Config
     {
         public static void Config(IServiceCollection services , string connectionString)
         {
-            #region ArticleCategory
+            #region ArticleCategoryId
 
             services.AddTransient<IArticleCategoryApplication, ArticleCategoryApplication>();
             services.AddTransient<IArticleCategoryRepository, ArticleCategoryRepository>();
