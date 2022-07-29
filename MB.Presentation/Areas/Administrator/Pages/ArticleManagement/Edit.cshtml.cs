@@ -24,7 +24,7 @@ namespace MB.Presentation.Areas.Administrator.Pages.ArticleManagement
         public void OnGet(long id)
         {
             Article = _articleApplication.Get(id);
-            ArticleCategories = _articleCategoryApplication.List().Select(x => new SelectListItem(x.Title, x.Id.ToString())).ToList();
+            ArticleCategories = _articleCategoryApplication.List().Where(x => x.IsDeleted == false).Select(x => new SelectListItem(x.Title, x.Id.ToString())).ToList();
         }
 
         public RedirectToPageResult OnPost()
