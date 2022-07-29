@@ -15,9 +15,11 @@ namespace MB.Presentation.Areas.Administrator.Pages.ArticleManagement
             _articleApplication = articleApplication;
         }
 
-        public void OnGet(bool created = false)
+        public void OnGet(bool created = false , bool edited = false)
         {
             ViewData["Created"] = created;
+            ViewData["Edited"] = edited;
+
             Articles = _articleApplication.GetArticles();
         }
     }
