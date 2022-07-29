@@ -48,5 +48,15 @@ namespace MB.Domain.ArticleAgg
             CreationDate = DateTime.Now;
             ArticleCategoryId = articleCategoryId;
         }
+
+        public void Remove()
+        {
+            IsDeleted = true;
+        }
+
+        public void Activate()
+        {
+            IsDeleted = false;
+        }
     }
 }
