@@ -25,4 +25,18 @@ public class ArticleQuery : IArticleQuery
             Image = x.Image
         }).ToList();
     }
+
+    public ArticleQueryView GetArticle(long id)
+    {
+        return _context.Articles.Include(x => x.ArticleCategory).Select(x => new ArticleQueryView
+        {
+            Id = x.Id,
+            Title = x.Title,
+            ShortDescription = x.ShortDescription,
+            ArticleCategory = x.ArticleCategory.Title,
+            CreationDate = x.CreationDate.ToString(CultureInfo.InvariantCulture),
+            Image = x.Image,
+            Content = x.Content
+        }).First(x=>x.Id == id);
+    }
 }
