@@ -30,6 +30,7 @@ namespace MB.Domain.ArticleCategoryAgg
             CreationDate = DateTime.Now;
             Articles = new List<Article>();
         }
+       
 
         public void CheckNullableTitle(string title)
         {

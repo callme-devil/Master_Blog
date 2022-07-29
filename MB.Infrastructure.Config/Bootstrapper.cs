@@ -2,6 +2,7 @@
 using MB.Application.Contracts.Article;
 using MB.Application.Contracts.ArticleCategory;
 using MB.Domain.ArticleAgg;
+using MB.Domain.ArticleAgg.Services;
 using MB.Domain.ArticleCategoryAgg;
 using MB.Domain.ArticleCategoryAgg.Services;
 using MB.Infrastructure.EFCore.Context;
@@ -25,6 +26,7 @@ namespace MB.Infrastructure.Config
             #region Validators
 
             services.AddTransient<IArticleCategoryValidatorService, ArticleCategoryValidatorService>();
+            services.AddTransient<IArticleValidatorService, ArticleValidatorService>();
 
             #endregion
 
