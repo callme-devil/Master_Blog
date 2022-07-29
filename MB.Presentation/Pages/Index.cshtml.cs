@@ -1,20 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MB.Infrastructure.Query;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace MB.Presentation.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        public List<ArticleQueryView> Articles { get; set; }
+        private readonly IArticleQuery _articleQuery;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(IArticleQuery articleQuery)
         {
-            _logger = logger;
+            _articleQuery = articleQuery;
         }
 
         public void OnGet()
         {
-
+            Articles = _articleQuery.GetArticles();
         }
     }
 }

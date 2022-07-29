@@ -7,6 +7,7 @@ using MB.Domain.ArticleCategoryAgg;
 using MB.Domain.ArticleCategoryAgg.Services;
 using MB.Infrastructure.EFCore.Context;
 using MB.Infrastructure.EFCore.Repositories;
+using MB.Infrastructure.Query;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -36,6 +37,12 @@ namespace MB.Infrastructure.Config
 
             services.AddTransient<IArticleApplication, ArticleApplication>();
             services.AddTransient<IArticleRepository, ArticleRepository>();
+
+            #endregion
+
+            #region ArticleQuery
+
+            services.AddTransient<IArticleQuery, ArticleQuery>();
 
             #endregion
 
