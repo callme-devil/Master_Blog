@@ -17,5 +17,10 @@ namespace MB.Application
             var comment = new Comment(command.Name, command.Email, command.Message, command.ArticleId);
             _commentRepository.Create(comment);
         }
+
+        public List<CommentViewModel> GetList()
+        {
+           return _commentRepository.GetList();
+        }
     }
 }

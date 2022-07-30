@@ -3,5 +3,7 @@
     public interface ICommentApplication
     {
          void Add(AddComment command);
+
+         List<CommentViewModel> GetList();
     }
 }
