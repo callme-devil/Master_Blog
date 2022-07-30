@@ -13,7 +13,7 @@ namespace MB.Infrastructure.EFCore.Mappings
             builder.Property(x => x.Name);
             builder.Property(x => x.Email);
             builder.Property(x => x.Message);
-            builder.Property(x => x.Statues);
+            builder.Property(x => x.Status);
             builder.Property(x => x.CreationDate);
 
             builder.HasOne(x => x.Article)

@@ -14,7 +14,7 @@ namespace MB.Domain.CommentAgg
 
         public DateTime CreationDate { get; private set; }
 
-        public int Statues { get; private set; } //!New = 0 , Confirmed = 1 , Canceled = 2 
+        public int Status { get; private set; } //!New = 0 , Confirmed = 1 , Canceled = 2 
 
         public long ArticleId { get; private set; }
 
@@ -31,7 +31,7 @@ namespace MB.Domain.CommentAgg
             Message = message;
             ArticleId = articleId;
             CreationDate =DateTime.Now;
-            Statues = Statuses.New;
+            Status = Statuses.New;
         }
     }
 }
