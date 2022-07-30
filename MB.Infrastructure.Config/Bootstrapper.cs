@@ -9,7 +9,7 @@ using MB.Domain.ArticleCategoryAgg.Services;
 using MB.Domain.CommentAgg;
 using MB.Infrastructure.EFCore.Context;
 using MB.Infrastructure.EFCore.Repositories;
-using MB.Infrastructure.Query;
+using MB.Infrastructure.Query.Article;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 

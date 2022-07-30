@@ -23,7 +23,7 @@
                     <h2 class="entry__title">
                         <a asp-page="/ArticleDetails" asp-route-id="@article.Id">@article.Title</a>
                     </h2>
-                    <p class="entry__excerpt">💬<span>3</span></p>
+                    <p class="entry__excerpt">💬<span>@article.CommentsCount</span></p>
                     <div class="entry__meta">
                         <span class="entry__meta-cat">
                             <a href="#">@article.ArticleCategory</a>

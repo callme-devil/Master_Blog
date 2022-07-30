@@ -1,4 +1,4 @@
-﻿namespace MB.Infrastructure.Query
+﻿namespace MB.Infrastructure.Query.Article
 {
     public interface IArticleQuery
     {
