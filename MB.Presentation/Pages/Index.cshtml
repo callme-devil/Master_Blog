@@ -4,39 +4,44 @@
     ViewData["Title"] = "Home page";
 }
 
-@foreach (var article in Model.Articles)
-{
-    <article class="masonry__brick entry format-standard animate-this">
 
-        <div class="entry__thumb">
-            <a asp-page="/ArticleDetails" asp-route-id = "@article.Id" class="entry__thumb-link">
-                <img src="@article.Image" alt="@article.Title" title="@article.Title">
-            </a>
-        </div>
+<div class="masonry">
+    <div class="grid-sizer"></div>
+    @foreach (var article in Model.Articles)
+    {
+        <article class="masonry__brick entry format-standard animate-this">
 
-        <div class="entry__text">
-            <div class="entry__header">
+            <div class="entry__thumb">
+                <a asp-page="/ArticleDetails" asp-route-id="@article.Id" class="entry__thumb-link">
+                    <img src="@article.Image" alt="@article.Title" title="@article.Title">
+                </a>
+            </div>
 
-                <h2 class="entry__title">
-                    <a asp-page="/ArticleDetails" asp-route-id = "@article.Id">@article.Title</a>
-                </h2>
-                <p class="entry__excerpt">💬<span>3</span></p>
-                <div class="entry__meta">
-                    <span class="entry__meta-cat">
-                        <a href="#">@article.ArticleCategory</a>
-                    </span>
-                    <span class="entry__meta-date">
-                        <a href="#">@article.CreationDate</a>
-                    </span>
+            <div class="entry__text">
+                <div class="entry__header">
+
+                    <h2 class="entry__title">
+                        <a asp-page="/ArticleDetails" asp-route-id="@article.Id">@article.Title</a>
+                    </h2>
+                    <p class="entry__excerpt">💬<span>3</span></p>
+                    <div class="entry__meta">
+                        <span class="entry__meta-cat">
+                            <a href="#">@article.ArticleCategory</a>
+                        </span>
+                        <span class="entry__meta-date">
+                            <a href="#">@article.CreationDate</a>
+                        </span>
+                    </div>
+
                 </div>
-
+                <div class="entry__excerpt">
+                    <p>
+                        @article.ShortDescription
+                    </p>
+                </div>
             </div>
-            <div class="entry__excerpt">
-                <p>
-                   @article.ShortDescription
-                </p>
-            </div>
-        </div>
 
-    </article>
-}
+        </article>
+    }
+
+</div>
