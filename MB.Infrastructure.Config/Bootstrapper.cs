@@ -1,10 +1,12 @@
 ﻿using MB.Application;
 using MB.Application.Contracts.Article;
 using MB.Application.Contracts.ArticleCategory;
+using MB.Application.Contracts.Comment;
 using MB.Domain.ArticleAgg;
 using MB.Domain.ArticleAgg.Services;
 using MB.Domain.ArticleCategoryAgg;
 using MB.Domain.ArticleCategoryAgg.Services;
+using MB.Domain.CommentAgg;
 using MB.Infrastructure.EFCore.Context;
 using MB.Infrastructure.EFCore.Repositories;
 using MB.Infrastructure.Query;
@@ -43,6 +45,13 @@ namespace MB.Infrastructure.Config
             #region ArticleQuery
 
             services.AddTransient<IArticleQuery, ArticleQuery>();
+
+            #endregion
+
+            #region Comments
+
+            services.AddTransient<ICommentApplication, CommentApplication>();
+            services.AddTransient<ICommentRepository, CommentRepository>();
 
             #endregion
 
