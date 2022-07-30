@@ -1,4 +1,5 @@
 using MB.Application.Contracts.Comment;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace MB.Presentation.Areas.Administrator.Pages.CommentManagement
@@ -13,11 +14,26 @@ namespace MB.Presentation.Areas.Administrator.Pages.CommentManagement
             _commentApplication = commentApplication;
         }
 
-        
 
-        public void OnGet()
+
+        public void OnGet(bool confirmed = false , bool canceled = false)
         {
-           Comments = _commentApplication.GetList();
+            ViewData["Confirmed"] = confirmed;
+            ViewData["Canceled"] = canceled;
+
+            Comments = _commentApplication.GetList();
+        }
+
+        public RedirectToPageResult OnPostConfirm(long id)
+        {
+            _commentApplication.Confirm(id);
+            return RedirectToPage("./List", new { Confirmed = "True" });
+        }
+
+        public RedirectToPageResult OnPostCancel(long id)
+        {
+            _commentApplication.Cancel(id);
+            return RedirectToPage("./List", new { Canceled = "True" });
         }
     }
 }

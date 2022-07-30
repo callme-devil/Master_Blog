@@ -5,5 +5,9 @@
          void Add(AddComment command);
 
          List<CommentViewModel> GetList();
+
+         void Confirm(long id);
+
+         void Cancel(long id);
     }
 }

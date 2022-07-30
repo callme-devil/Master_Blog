@@ -39,5 +39,10 @@ namespace MB.Infrastructure.EFCore.Repositories
                 Article = x.Article.Title
             }).ToList();
         }
+
+        public Comment Get(long id)
+        {
+            return _context.Comments.First(x => x.Id == id);
+        }
     }
 }
