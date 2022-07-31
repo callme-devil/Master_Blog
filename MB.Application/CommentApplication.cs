@@ -28,7 +28,7 @@ namespace MB.Application
            return _commentRepository.GetList();
         }
 
-        public void Confirm(int id)
+        public void Confirm(long id)
         {
             _unitOfWork.BeginTran();
             var comment = _commentRepository.Get(id);
@@ -36,7 +36,7 @@ namespace MB.Application
             _unitOfWork.CommitTran();
         }
 
-        public void Cancel(int id)
+        public void Cancel(long id)
         {
             _unitOfWork.BeginTran();
             var comment = _commentRepository.Get(id);

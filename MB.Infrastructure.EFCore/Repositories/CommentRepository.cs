@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MB.Infrastructure.EFCore.Repositories
 {
-    public class CommentRepository :BaseRepository<int , Comment> , ICommentRepository
+    public class CommentRepository :BaseRepository<long , Comment> , ICommentRepository
     {
         private readonly MasterBlogContext _context;
 
-        public CommentRepository(MasterBlogContext context)
+        public CommentRepository(MasterBlogContext context):base(context)
         {
             _context = context;
         }

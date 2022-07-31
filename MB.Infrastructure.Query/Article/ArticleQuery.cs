@@ -44,7 +44,7 @@ public class ArticleQuery : IArticleQuery
             CreationDate = x.CreationDate.ToString(CultureInfo.InvariantCulture),
             Image = x.Image,
             Content = x.Content,
-            Comments = MapComments(x.Comments.Where(x=>x.Status == Statuses.Confirmed)),
+            Comments = MapComments(x.Comments.Where(f=>f.Status == Statuses.Confirmed)),
             CommentsCount = x.Comments.Count(z => z.Status == Statuses.Confirmed)
         }).First(x => x.Id == id);
     }

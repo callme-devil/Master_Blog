@@ -12,7 +12,7 @@ namespace MB.Infrastructure.EFCore.Repositories
         private readonly MasterBlogContext _context;
 
 
-        public ArticleRepository(MasterBlogContext context)
+        public ArticleRepository(MasterBlogContext context) : base(context)
         {
             _context = context;
         }

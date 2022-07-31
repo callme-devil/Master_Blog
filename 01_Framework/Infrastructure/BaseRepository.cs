@@ -8,6 +8,11 @@ namespace _01_Framework.Infrastructure
     {
         private readonly DbContext _context;
 
+        public BaseRepository(DbContext context)
+        {
+            _context = context;
+        }
+
         public void Create(T entity)
         {
             _context.Add<T>(entity);

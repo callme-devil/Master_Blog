@@ -3,7 +3,7 @@ using MB.Application.Contracts.Comment;
 
 namespace MB.Domain.CommentAgg
 {
-    public interface ICommentRepository :IRepository<int , Comment>
+    public interface ICommentRepository :IRepository<long , Comment>
     {
         //?Customization Methods
 

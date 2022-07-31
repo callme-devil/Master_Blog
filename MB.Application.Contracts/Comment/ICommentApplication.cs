@@ -6,8 +6,8 @@
 
          List<CommentViewModel> GetList();
 
-         void Confirm(int id);
+         void Confirm(long id);
 
-         void Cancel(int id);
+         void Cancel(long id);
     }
 }
