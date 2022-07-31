@@ -1,4 +1,5 @@
-﻿using MB.Application;
+﻿using _01_Framework.Infrastructure.UnitOfWork;
+using MB.Application;
 using MB.Application.Contracts.Article;
 using MB.Application.Contracts.ArticleCategory;
 using MB.Application.Contracts.Comment;
@@ -52,6 +53,12 @@ namespace MB.Infrastructure.Config
 
             services.AddTransient<ICommentApplication, CommentApplication>();
             services.AddTransient<ICommentRepository, CommentRepository>();
+
+            #endregion
+
+            #region UnitOfWork
+
+            services.AddTransient<IUnitOfWork, UnitOfWorkEf>();
 
             #endregion
 
