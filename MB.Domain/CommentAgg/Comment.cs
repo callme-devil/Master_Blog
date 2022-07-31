@@ -3,7 +3,7 @@ using MB.Domain.ArticleAgg;
 
 namespace MB.Domain.CommentAgg
 {
-    public class Comment : DomainBase
+    public class Comment : DomainBase<int>
     {
 
         public string Name { get; private set; }

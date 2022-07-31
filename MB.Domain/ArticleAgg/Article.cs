@@ -5,7 +5,7 @@ using MB.Domain.CommentAgg;
 
 namespace MB.Domain.ArticleAgg
 {
-    public class Article : DomainBase
+    public class Article : DomainBase<long>
     {
         public string Title { get; private set; }
 

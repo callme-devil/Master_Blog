@@ -4,7 +4,7 @@ using MB.Domain.ArticleCategoryAgg.Services;
 
 namespace MB.Domain.ArticleCategoryAgg
 {
-    public class ArticleCategory : DomainBase
+    public class ArticleCategory : DomainBase<long>
     {
 
         public string Title { get; private set; }

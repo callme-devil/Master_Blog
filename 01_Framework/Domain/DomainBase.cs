@@ -1,8 +1,8 @@
 ﻿namespace _01_Framework.Domain
 {
-    public class DomainBase
+    public class DomainBase<T>
     {
-        public long Id { get; private set; }
+        public T Id { get; private set; }
 
         public DateTime CreationDate { get; private set; }
 
