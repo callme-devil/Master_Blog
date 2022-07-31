@@ -20,6 +20,8 @@ public class UnitOfWorkEf : IUnitOfWork
 
     public void CommitTran()
     {
+        _context.SaveChanges();
+
         _context.Database.CommitTransaction();
     }
 
