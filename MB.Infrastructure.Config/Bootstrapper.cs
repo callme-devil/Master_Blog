@@ -8,6 +8,7 @@ using MB.Domain.ArticleAgg.Services;
 using MB.Domain.ArticleCategoryAgg;
 using MB.Domain.ArticleCategoryAgg.Services;
 using MB.Domain.CommentAgg;
+using MB.Infrastructure.EFCore;
 using MB.Infrastructure.EFCore.Context;
 using MB.Infrastructure.EFCore.Repositories;
 using MB.Infrastructure.Query.Article;

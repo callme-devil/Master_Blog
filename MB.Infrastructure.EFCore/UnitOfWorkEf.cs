@@ -1,12 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using _01_Framework.Infrastructure.UnitOfWork;
+using MB.Infrastructure.EFCore.Context;
+using Microsoft.EntityFrameworkCore;
 
-namespace _01_Framework.Infrastructure.UnitOfWork;
+namespace MB.Infrastructure.EFCore;
 
 public class UnitOfWorkEf : IUnitOfWork
 {
-    private readonly DbContext _context;
+    private readonly MasterBlogContext _context;
 
-    public UnitOfWorkEf(DbContext context)
+    public UnitOfWorkEf(MasterBlogContext context)
     {
         _context = context;
     }
