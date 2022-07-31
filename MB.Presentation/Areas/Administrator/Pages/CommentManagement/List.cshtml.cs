@@ -24,13 +24,13 @@ namespace MB.Presentation.Areas.Administrator.Pages.CommentManagement
             Comments = _commentApplication.GetList();
         }
 
-        public RedirectToPageResult OnPostConfirm(long id)
+        public RedirectToPageResult OnPostConfirm(int id)
         {
             _commentApplication.Confirm(id);
             return RedirectToPage("./List", new { Confirmed = "True" });
         }
 
-        public RedirectToPageResult OnPostCancel(long id)
+        public RedirectToPageResult OnPostCancel(int id)
         {
             _commentApplication.Cancel(id);
             return RedirectToPage("./List", new { Canceled = "True" });
