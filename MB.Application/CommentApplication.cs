@@ -20,21 +20,21 @@ namespace MB.Application
 
         public List<CommentViewModel> GetList()
         {
-           return _commentRepository.GetAll();
+           return _commentRepository.GetList();
         }
 
-        public void Confirm(long id)
+        public void Confirm(int id)
         {
             var comment = _commentRepository.Get(id);
             comment.Confirm();
-            _commentRepository.Save();
+            //_commentRepository.Create();
         }
 
-        public void Cancel(long id)
+        public void Cancel(int id)
         {
             var comment = _commentRepository.Get(id);
             comment.Canceled();
-            _commentRepository.Save();
+            //_commentRepository.Save();
         }
     }
 }
