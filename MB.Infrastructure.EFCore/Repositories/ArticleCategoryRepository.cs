@@ -14,9 +14,5 @@ namespace MB.Infrastructure.EFCore.Repositories
             _context = context;
         }
 
-        public List<ArticleCategory> GetAll()
-        {
-            return _context.ArticleCategories.OrderByDescending(x=>x.Id).ToList();
-        }
     }
 }
