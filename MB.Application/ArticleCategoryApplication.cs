@@ -5,7 +5,7 @@ using MB.Domain.ArticleCategoryAgg.Services;
 
 namespace MB.Application
 {
-    public class ArticleCategoryApplication :IArticleCategoryApplication
+    public class ArticleCategoryApplication : IArticleCategoryApplication
     {
         private readonly IArticleCategoryRepository _articleCategoryRepository;
         private readonly IArticleCategoryValidatorService _articleCategoryValidatorService;
@@ -20,32 +20,26 @@ namespace MB.Application
         {
             var articleCategories = _articleCategoryRepository.GetAll();
 
-            var result = new List<ArticleCategoryViewModel>();
-            foreach (var articleCategory in articleCategories)
+            return articleCategories.Select(articleCategory => new ArticleCategoryViewModel
             {
-                result.Add(new ArticleCategoryViewModel
-                {
-                    Id = (int) articleCategory.Id, //? long is 64bit and int is 32bit long is higher than int so we can convert it to int here
-                    Title = articleCategory.Title,
-                    IsDeleted = articleCategory.IsDeleted,
-                    CreationDate = articleCategory.CreationDate.ToString(CultureInfo.InvariantCulture)
-                });
-            }
-
-            return result;
+                Id = (int)articleCategory.Id, //? long is 64bit and int is 32bit long is higher than int so we can convert it to int here
+                Title = articleCategory.Title,
+                IsDeleted = articleCategory.IsDeleted,
+                CreationDate = articleCategory.CreationDate.ToString(CultureInfo.InvariantCulture)
+            }).OrderByDescending(x=>x.Id).ToList();
         }
 
         public void Create(CreateArticleCategory command)
         {
-            var articleCategory = new ArticleCategory(command.Title,_articleCategoryValidatorService);
-            _articleCategoryRepository.Add(articleCategory);
+            var articleCategory = new ArticleCategory(command.Title, _articleCategoryValidatorService);
+            _articleCategoryRepository.Create(articleCategory);
         }
 
         public void Rename(RenameArticleCategory command)
         {
             var articleCategory = _articleCategoryRepository.Get(command.Id);
             articleCategory.Rename(command.Title);
-            _articleCategoryRepository.Save();
+            //_articleCategoryRepository.Save();
         }
 
         public RenameArticleCategory Get(long id)
@@ -63,14 +57,14 @@ namespace MB.Application
         {
             var articleCategory = _articleCategoryRepository.Get(id);
             articleCategory.Remove();
-            _articleCategoryRepository.Save();
+            //_articleCategoryRepository.Save();
         }
 
         public void Activate(long id)
         {
             var articleCategory = _articleCategoryRepository.Get(id);
             articleCategory.Activate();
-            _articleCategoryRepository.Save();
+            //_articleCategoryRepository.Save();
         }
     }
 }
