@@ -5,6 +5,8 @@ namespace MB.Domain.CommentAgg
 {
     public interface ICommentRepository :IRepository<int , Comment>
     {
+        //?Customization Methods
 
+        List<CommentViewModel> GetList();
     }
 }
