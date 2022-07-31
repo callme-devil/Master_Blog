@@ -18,7 +18,7 @@ namespace _01_Framework.Infrastructure
             return _context.Find<T>(id);
         }
 
-        public List<T> GetList()
+        public List<T> GetAll()
         {
             return _context.Set<T>().ToList();
         }

@@ -9,7 +9,7 @@ namespace _01_Framework.Infrastructure
 
         T Get(TKey id);
 
-        List<T> GetList();
+        List<T> GetAll();
 
         bool Exists(Expression<Func<T, bool>> expression);
 

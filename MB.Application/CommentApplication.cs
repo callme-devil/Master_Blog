@@ -20,7 +20,7 @@ namespace MB.Application
 
         public List<CommentViewModel> GetList()
         {
-           return _commentRepository.GetList();
+           return _commentRepository.GetAll();
         }
 
         public void Confirm(long id)
