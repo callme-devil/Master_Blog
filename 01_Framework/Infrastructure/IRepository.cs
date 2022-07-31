@@ -11,7 +11,7 @@ namespace _01_Framework.Infrastructure
 
         List<T> GetList();
 
-        bool Exists(Expression<Func<bool, T>> expression);
+        bool Exists(Expression<Func<T, bool>> expression);
 
         
     }
