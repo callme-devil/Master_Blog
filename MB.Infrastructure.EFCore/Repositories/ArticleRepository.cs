@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using _01_Framework.Infrastructure;
 using MB.Application.Contracts.Article;
 using MB.Domain.ArticleAgg;
 using MB.Infrastructure.EFCore.Context;
@@ -6,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MB.Infrastructure.EFCore.Repositories
 {
-    public class ArticleRepository:IArticleRepository
+    public class ArticleRepository:BaseRepository<long , Article> , IArticleRepository
     {
         private readonly MasterBlogContext _context;
 
@@ -30,26 +31,5 @@ namespace MB.Infrastructure.EFCore.Repositories
             }).ToList();
         }
 
-        public void Create(Article entity)
-        {
-            _context.Articles.Add(entity);
-            Save();
-
-        }
-
-        public void Save()
-        {
-            _context.SaveChanges();
-        }
-
-        public Article Get(long id)
-        {
-            return _context.Articles.FirstOrDefault(x => x.Id == id);
-        }
-
-        public bool CheckExist(string title)
-        {
-            return _context.Articles.Any(x => x.Title == title);
-        }
     }
 }
