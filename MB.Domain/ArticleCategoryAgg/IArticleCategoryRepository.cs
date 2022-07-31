@@ -4,6 +4,6 @@ namespace MB.Domain.ArticleCategoryAgg
 {
     public interface IArticleCategoryRepository: IRepository<long , ArticleCategory>
     {
-
+        List<ArticleCategory> GetAll();
     }
 }

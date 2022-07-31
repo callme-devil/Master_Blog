@@ -1,9 +1,10 @@
-﻿using MB.Domain.ArticleCategoryAgg;
+﻿using _01_Framework.Infrastructure;
+using MB.Domain.ArticleCategoryAgg;
 using MB.Infrastructure.EFCore.Context;
 
 namespace MB.Infrastructure.EFCore.Repositories
 {
-    public  class ArticleCategoryRepository :IArticleCategoryRepository
+    public  class ArticleCategoryRepository :BaseRepository<long,ArticleCategory> , IArticleCategoryRepository
     {
         private readonly MasterBlogContext _context;
 
@@ -16,27 +17,6 @@ namespace MB.Infrastructure.EFCore.Repositories
         public List<ArticleCategory> GetAll()
         {
             return _context.ArticleCategories.OrderByDescending(x=>x.Id).ToList();
-        }
-
-        public void Add(ArticleCategory entity)
-        {
-            _context.ArticleCategories.Add(entity);
-            Save();
-        }
-
-        public ArticleCategory Get(long id)
-        {
-            return _context.ArticleCategories.First(x => x.Id == id);
-        }
-
-        public void Save()
-        {
-            _context.SaveChanges();
-        }
-
-        public bool CheckExist(string title)
-        {
-            return _context.ArticleCategories.Any(x => x.Title == title);
         }
     }
 }
